@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: docker build -t local .
-    - run: docker run --name demo -d -p 8000:8000 local
+    - run: docker run --name demo -d -p 3000:3000 local
     - run: sleep 10
 
     - name: screenshot
@@ -20,4 +20,4 @@ jobs:
       with:
         upload_to: github_branch
         capture_changed_html_files: yes
-        capture_urls: 'http://172.17.0.1:3000/'
+        capture_urls: 'http://172.17.0.1:3000/, http://172.17.0.1:3000/about'

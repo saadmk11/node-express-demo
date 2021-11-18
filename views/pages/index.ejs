@@ -1,37 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <%- include('../partials/head'); %>
-</head>
-<body class="container">
+    <head>
+        <%- include('../partials/head'); %>
+    </head>
+    <body class="container">
+        <header>
+            <%- include('../partials/header'); %>
+        </header>
 
-<header>
-  <%- include('../partials/header'); %>
-</header>
+        <main>
+            <div class="jumbotron">
+                <h1>Node Js Demo</h1>
+                <p>Welcome to Node JS Demo App</p>
 
-<main>
-  <div class="jumbotron">
-    <h1>This is great</h1>
-    <p>Welcome to templating using EJS</p>
+                <h2><%= title %></h2>
 
-    <h2>Variable</h2>
-    <p><%= tagline %></p>
+                <ul>
+                    <% mascots.forEach(function(tools) { %>
+                    <li>
+                        <strong><%= mascot.name %>: </strong>
+                        <%= mascot.description %>
+                    </li>
+                    <% }); %>
+                </ul>
+            </div>
+        </main>
 
-    <ul>
-      <% mascots.forEach(function(mascot) { %>
-        <li>
-          <strong><%= mascot.name %></strong>
-          representing <%= mascot.organization %>,
-          born <%= mascot.birth_year %>
-        </li>
-      <% }); %>
-    </ul>
-  </div>
-</main>
-
-<footer>
-  <%- include('../partials/footer'); %>
-</footer>
-
-</body>
+        <footer>
+            <%- include('../partials/footer'); %>
+        </footer>
+    </body>
 </html>

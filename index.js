@@ -1,30 +1,25 @@
-var express = require('express');
+var express = require("express");
 var app = express();
 
-// set the view engine to ejs
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 
-// use res.render to load up an ejs view file
+app.get("/", function (req, res) {
+    var title = "Tools Used To Build The App";
+    var tools = [
+        { name: "NodeJs", description: "This is Node JS Description" },
+        { name: "Express", description: "This is Express Description" },
+        { name: "EJS", description: "This is EJS Description" },
+    ];
 
-// index page
-app.get('/', function(req, res) {
-  var mascots = [
-    { name: 'Sammy', organization: "DigitalOcean", birth_year: 2012},
-    { name: 'Tux', organization: "Linux", birth_year: 1996},
-    { name: 'Moby Dock', organization: "Docker", birth_year: 2013}
-  ];
-  var tagline = "No programming concept is complete without a cute animal mascot.";
-
-  res.render('pages/index', {
-    mascots: mascots,
-    tagline: tagline
-  });
+    res.render("pages/index", {
+        tools: tools,
+        title: title,
+    });
 });
 
-// about page
-app.get('/about', function(req, res) {
-  res.render('pages/about');
+app.get("/about", function (req, res) {
+    res.render("pages/about");
 });
 
 app.listen(3000);
-console.log('Server is listening on port 3000');
+console.log("Server is listening on port 3000");

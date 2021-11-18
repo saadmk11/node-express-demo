@@ -16,10 +16,10 @@
                 <h2><%= title %></h2>
 
                 <ul>
-                    <% mascots.forEach(function(tools) { %>
+                    <% tools.forEach(function(tool) { %>
                     <li>
-                        <strong><%= mascot.name %>: </strong>
-                        <%= mascot.description %>
+                        <strong><%= tool.name %>: </strong>
+                        <%= tool.description %>
                     </li>
                     <% }); %>
                 </ul>
